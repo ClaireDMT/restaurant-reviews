@@ -6,6 +6,20 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  def top
+    @restaurants = Restaurant.where(stars: 5)
+  end
+
+  def chef
+    @restaurant = Restaurant.find(params[:id])
+    @chef = @restaurant.chef_name
+  end
+
+  # def selection
+  #   @query = params[:selection]
+  #   @restaurants = Restaurant.where(stars: @query)
+  # end
+
   # GET /restaurants/1
   def show
   end
